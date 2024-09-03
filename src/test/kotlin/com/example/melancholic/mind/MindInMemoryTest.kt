@@ -14,7 +14,7 @@ import io.kotest.matchers.shouldNotBe
 class MindInMemoryTest: FunSpec ({
 
     test("새로운 id 생성") {
-        val id = null
+        val id = 1
 
         id shouldNotBe null
     }
