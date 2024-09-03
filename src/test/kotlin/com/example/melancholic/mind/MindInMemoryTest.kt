@@ -13,6 +13,12 @@ import io.kotest.matchers.shouldNotBe
  */
 class MindInMemoryTest: FunSpec ({
 
+    val repository = mutableMapOf<Int, String>()
+
+    beforeTest {
+        repository.clear()
+    }
+
     test("새로운 id 생성") {
         val id = 1
 
