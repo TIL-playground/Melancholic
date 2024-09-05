@@ -13,9 +13,14 @@ import io.kotest.matchers.string.shouldHaveMaxLength
  *  <li> 세 번째 목표 - </li>
  * </ul>
  */
+data class Mind(
+    val title: String,
+    val content: String
+)
+
 class MindInMemoryTest: FunSpec ({
 
-    val repository = mutableMapOf<Int, String>()
+    val repository = mutableMapOf<Int, Mind>()
 
     beforeTest {
         repository.clear()
@@ -36,5 +41,4 @@ class MindInMemoryTest: FunSpec ({
         repository[id] shouldBe content
         repository.size shouldBe content
     }
-
 })
