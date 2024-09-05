@@ -33,12 +33,17 @@ class MindInMemoryTest: FunSpec ({
     }
 
     test("새로운 Mind 생성") {
-        val content: String = "새로운 Mind를 생성합니다. 해당 Mind의 제목는 30글자가 넘어갈 것입니다. 아마도?"
+        val title = "새로운 Mind의 제목입니다. 어떻게 작성하는 게 좋을까요?"
+        val content = "새로운 Mind를 생성합니다. 해당 Mind의 내용은 30글자가 넘어갈 것입니다. 아마도?"
         val id = 1
 
-        repository[id] = content
+        repository[id] = Mind(
+            title, content
+        )
 
-        repository[id] shouldBe content
-        repository.size shouldBe content
+        repository[id]?.content shouldBe content
+        repository[id]?.title shouldBe title
+
+        repository.size shouldBe id
     }
 })
